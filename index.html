@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keygen Windows 95</title>
+</head>
+<body>
+    <h1>Generador de Claves de Windows 95</h1>
+    <button id="generateButton">Generar</button>
+    <p id="output"></p>
+
+    <script>
+        function generateString() {
+            // Generar un día aleatorio entre 1 y 366.
+            const dayOfYear = Math.floor(Math.random() * 366) + 1;
+
+            // Generar un año aleatorio entre 1995 y 2003 basado en el día.
+            const year = 1995 + Math.floor(dayOfYear / 100);
+
+            // Generar un número aleatorio de 5 dígitos que al sumarse sea divisible por 7.
+            let sum = 0;
+            let sssss = '';
+            for (let i = 0; i < 5; i++) {
+                const randomNumber = Math.floor(Math.random() * 10);
+                sssss += randomNumber;
+                sum += randomNumber;
+            }
+            // Asegurarse que la suma sea divisible por 7 y no haya resto.
+            while (sum % 7 !== 0) {
+                sum = 0;
+                sssss = '';
+                for (let i = 0; i < 5; i++) {
+                    const randomNumber = Math.floor(Math.random() * 10);
+                    sssss += randomNumber;
+                    sum += randomNumber;
+                }
+            }
+
+            // Generar un número aleatorio de 5 dígitos
+            const zzzzz = Math.floor(Math.random() * 100000);
+
+            // Crear el string de salida
+            const generatedString = `${dayOfYear.toString().padStart(3, '0')}${year.toString().substring(2)}-OEM-00${sssss}-${zzzzz.toString().padStart(5, '0')}`;
+
+            // Mostrar el string
+            document.getElementById('output').textContent = generatedString;
+        }
+
+        document.getElementById('generateButton').addEventListener('click', generateString);
+    </script>
+</body>
+</html>
